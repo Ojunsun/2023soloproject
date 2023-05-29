@@ -32,6 +32,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move(); // 플레이어 움직임
+        PlayerRun();
     }
 
     private void Update()
@@ -46,7 +47,21 @@ public class PlayerMove : MonoBehaviour
         vAxis = Input.GetAxisRaw("Vertical");
 
         Vector3 dir = new Vector3(hAxis, 0, vAxis);
-        transform.Translate(dir.normalized * speed * Time.deltaTime);
+        dir = transform.rotation * dir.normalized;
+        //transform.Translate(dir.normalized * speed * Time.deltaTime);
+        myRigid.velocity = dir.normalized * speed;
+    }
+
+    private void PlayerRun()
+    {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 20f;
+        }
+        else
+        {
+            speed = 10f;
+        }
     }
 
     private void CameraRotation()
