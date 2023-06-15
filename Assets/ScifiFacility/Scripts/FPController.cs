@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FPController : MonoBehaviour {
 
-	public float speed = 6f;
-	public float mouseSensitivity =5f;
+	public float speed = 3f;
+	public float mouseSensitivity =2f;
 	public float jumpSpeed = 10f;
+	bool isRun = false;
 
 	private float rotationLeftRight;
 	private float verticalRotation;
@@ -44,17 +45,11 @@ public class FPController : MonoBehaviour {
 
 		verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
-		if (cc.isGrounded && Input.GetButtonDown ("Jump")) {
-			verticalVelocity = jumpSpeed;
-		}
-
 		speedCombined = new Vector3 (sideSpeed, verticalVelocity, forwardspeed);
 
 		speedCombined = transform.rotation * speedCombined;
 
 		cc.Move (speedCombined * Time.deltaTime);
-
-
 
 	}
 }
