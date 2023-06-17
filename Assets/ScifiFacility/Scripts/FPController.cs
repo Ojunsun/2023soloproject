@@ -7,7 +7,6 @@ public class FPController : MonoBehaviour {
 	public float speed = 3f;
 	public float mouseSensitivity =2f;
 	public float jumpSpeed = 10f;
-	bool isRun = false;
 
 	private float rotationLeftRight;
 	private float verticalRotation;

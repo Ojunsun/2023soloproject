@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6886691734737826241}
   - component: {fileID: 6886691734737826270}
   - component: {fileID: 6886691734737826245}
+  - component: {fileID: 3634172533706094731}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -128,6 +129,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea9b9ca22d4999459636cbde72578b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   lookSensitivity: 2
   cameraRotationLimit: 45
   theCamera: {fileID: 0}
+  _staminaController: {fileID: 0}
+--- !u!114 &3634172533706094731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886691734737826271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b508dcd69868e54fa2e16b8b6a82862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  maxStamina: 100
+  hasRegenerated: 1
+  isSprinting: 0
+  staminaDrain: 1.5
+  staminaRegen: 0.5
+  slowedRunSpeed: 5
+  normalRunSpeed: 15
+  StaminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}

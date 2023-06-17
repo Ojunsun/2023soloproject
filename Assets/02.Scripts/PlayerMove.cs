@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    float speed = 10f;
-
+    public float speed = 8f;
+   
     float hAxis;
     float vAxis;
 
@@ -23,16 +23,19 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private Camera theCamera;
 
-    
+    [HideInInspector] public StaminaController _staminaController;
+    [HideInInspector] bool isWalk = true;
+
     private void Start()
     {
+        _staminaController = GetComponent<StaminaController>();
         myRigid = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
         Move(); // 플레이어 움직임
-        PlayerRun();
+        Run();
     }
 
     private void Update()
@@ -52,18 +55,6 @@ public class PlayerMove : MonoBehaviour
         myRigid.velocity = dir.normalized * speed;
     }
 
-    private void PlayerRun()
-    {
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 20f;
-        }
-        else
-        {
-            speed = 10f;
-        }
-    }
-
     private void CameraRotation()
     {
         float _xRotation = Input.GetAxisRaw("Mouse Y");
@@ -81,5 +72,32 @@ public class PlayerMove : MonoBehaviour
         currentCameraRotationY += _characterRotationY;
 
         transform.localEulerAngles = new Vector3(0, currentCameraRotationY, 0);
+    }
+
+    private void Run()
+    {
+        isWalk = !Input.GetKey(KeyCode.LeftShift);
+
+        if(isWalk)
+        {
+            _staminaController.isSprinting = false;
+        }
+
+        if (_staminaController.playerStamina > 0 && !isWalk)
+        {
+            _staminaController.isSprinting = true;
+            _staminaController.Sprinting();
+            speed = 15f;
+
+            if (_staminaController.isCanRun == false)
+            {
+                speed = 10f;
+            }
+        }
+        else
+        {
+            _staminaController.isSprinting = false;
+            speed = 10f;
+        }
     }
 }
