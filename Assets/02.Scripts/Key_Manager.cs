@@ -10,7 +10,7 @@ public class Key_Manager : MonoBehaviour
     public GameObject Player;
 
     private GameObject activeKey;
-    private bool hasKey = false;
+    public bool hasKey = false;
 
     void Start()
     {

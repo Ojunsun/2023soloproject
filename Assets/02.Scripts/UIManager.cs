@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Text Title;
+    [SerializeField] Text[] Title;
+    [SerializeField] Text explanation;
     [SerializeField] Button[] _Btn;
+    
+    private void Start()
+    {
+        Invoke("Disable", 3f);
+    }
+
     public void SeeUI()
     {
-        Title.gameObject.SetActive(true);
+        Title[0].gameObject.SetActive(true);
+        Title[1].gameObject.SetActive(true);
         _Btn[0].gameObject.SetActive(true);
         _Btn[1].gameObject.SetActive(true);
+    }
+
+    private void Disable()
+    {
+        explanation.gameObject.SetActive(false);
     }
 }

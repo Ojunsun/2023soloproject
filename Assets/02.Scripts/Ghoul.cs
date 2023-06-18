@@ -11,9 +11,19 @@ public class Ghoul : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    public GameObject Bgm;
+    public GameObject Bgm2;
+    AudioSource _audioSource;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        Debug.Log(_audioSource.clip.name);
     }
 
     void Update()
@@ -29,6 +39,13 @@ public class Ghoul : MonoBehaviour
         {
             agent.SetDestination(specificPosition);
             FaceTarget(specificPosition);
+        }
+
+        if(distanceToPlayer <= 20f)
+        {
+            _audioSource.Play(_audioSource.clip);
+            Bgm.SetActive(false);
+            Bgm2.SetActive(true);
         }
     }
 

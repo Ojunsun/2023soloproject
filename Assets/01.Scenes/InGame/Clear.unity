@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.89666986, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.8980392, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2881,7 +2881,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa53291a6ea6f44b8078635a0d122be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 150717741}
+  Title:
+  - {fileID: 1752093143}
+  - {fileID: 150717741}
+  explanation: {fileID: 0}
   _Btn:
   - {fileID: 490109835}
   - {fileID: 1777978459}
@@ -3150,7 +3153,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752093141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3175,7 +3178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.9377076, b: 0.80451226, a: 0.16470589}
+  m_Color: {r: 1, g: 0.8947368, b: 0, a: 0.36862746}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3184,7 +3187,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f13dbece6fab2c3448f6c5eba42b4cb6, type: 3}
-    m_FontSize: 280
+    m_FontSize: 290
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
