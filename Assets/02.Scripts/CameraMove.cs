@@ -8,7 +8,8 @@ public class CameraMove : MonoBehaviour
     public GameObject yame;
     [SerializeField] DoorMove doormove;
     [SerializeField] UIManager _UiManager;
-
+    [SerializeField] GameObject Bgm;
+    [SerializeField] GameObject Bgm2;
     Vector3 dir = new Vector3(0, 0, 2);
     
     void Update()
@@ -19,6 +20,8 @@ public class CameraMove : MonoBehaviour
             MoveStop();
             doormove.DoorOpen();
             _UiManager.SeeUI();
+            Bgm.SetActive(false);
+            Bgm2.SetActive(true);
         }
         else
         {

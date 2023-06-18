@@ -14,6 +14,7 @@ public class Ghoul : MonoBehaviour
     public GameObject Bgm;
     public GameObject Bgm2;
     AudioSource _audioSource;
+    private bool isFirst = true;
 
     void Start()
     {
@@ -43,7 +44,11 @@ public class Ghoul : MonoBehaviour
 
         if(distanceToPlayer <= 20f)
         {
-            _audioSource.Play(_audioSource.clip);
+            if(isFirst)
+            {
+                _audioSource.Play();
+                isFirst = false;
+            }
             Bgm.SetActive(false);
             Bgm2.SetActive(true);
         }
