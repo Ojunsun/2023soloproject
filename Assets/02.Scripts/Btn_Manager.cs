@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Btn_Manager : MonoBehaviour
 {
+    public void GoTitle()
+    {
+        SceneManager.LoadScene("Intro");
+    }
+
     public void ReTryBtn()
     {
         SceneManager.LoadScene("Game");
