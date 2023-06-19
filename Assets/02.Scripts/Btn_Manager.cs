@@ -9,6 +9,12 @@ public class Btn_Manager : MonoBehaviour
     [SerializeField]
     GameObject _pannel;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void GoTitle()
     {
         SceneManager.LoadScene("Intro");

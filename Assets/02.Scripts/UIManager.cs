@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Invoke("Disable", 3f);
     }
 
