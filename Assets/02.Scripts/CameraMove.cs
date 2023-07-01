@@ -8,15 +8,21 @@ public class CameraMove : MonoBehaviour
     public GameObject yame;
     [SerializeField] DoorMove doormove;
     [SerializeField] UIManager _UiManager;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _audioClip;
     [SerializeField] GameObject Bgm;
     [SerializeField] GameObject Bgm2;
     Vector3 dir = new Vector3(0, 0, 2);
-    
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
-        Debug.Log(Vector3.Distance(yame.transform.position, door.transform.position));
         if (Vector3.Distance(yame.transform.position, door.transform.position) > 7f)
         {
+            _audioSource.PlayOneShot(_audioClip);
             MoveStop();
             doormove.DoorOpen();
             _UiManager.SeeUI();

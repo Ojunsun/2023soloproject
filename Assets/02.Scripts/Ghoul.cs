@@ -9,6 +9,7 @@ public class Ghoul : MonoBehaviour
     public Transform player;
     public Vector3 specificPosition;
 
+    float extraRotationSpeed = 5f;
     private NavMeshAgent agent;
 
     public GameObject Bgm;
@@ -30,16 +31,16 @@ public class Ghoul : MonoBehaviour
     void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        Vector3 lookrotation = agent.steeringTarget - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
 
         if (distanceToPlayer <= 60f)
         {
             agent.SetDestination(player.position);
-            FaceTarget(player.position);
         }
         else
         {
             agent.SetDestination(specificPosition);
-            FaceTarget(specificPosition);
         }
 
         if(distanceToPlayer <= 20f)
