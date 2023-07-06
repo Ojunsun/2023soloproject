@@ -10,6 +10,7 @@ public class Key_Manager : MonoBehaviour
     public GameObject Player;
 
     private GameObject activeKey;
+    public GameObject hasKeyUI;
     public bool hasKey = false;
 
     void Start()
@@ -32,6 +33,10 @@ public class Key_Manager : MonoBehaviour
             {
                 OpenDoor();
             }
+        }
+        if(hasKey)
+        {
+            hasKeyUI.SetActive(true);
         }
     }
 

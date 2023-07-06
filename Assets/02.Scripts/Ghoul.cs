@@ -34,7 +34,7 @@ public class Ghoul : MonoBehaviour
         Vector3 lookrotation = agent.steeringTarget - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
 
-        if (distanceToPlayer <= 60f)
+        if (distanceToPlayer <= 100f)
         {
             agent.SetDestination(player.position);
         }
